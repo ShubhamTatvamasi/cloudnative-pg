@@ -11,3 +11,10 @@ SELECT
 FROM pg_roles
 ORDER BY rolname;
 ```
+
+Create a `test_user`:
+```sql
+CREATE ROLE test_user
+LOGIN
+PASSWORD 'secret';
+```
