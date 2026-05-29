@@ -16,5 +16,5 @@ Create a `test_user`:
 ```sql
 CREATE ROLE test_user
 LOGIN
-PASSWORD 'secret';
+PASSWORD 'test_user';
 ```
