@@ -70,6 +70,20 @@ kubectl run psql-client \
   -- psql -h postgres-rw-pooler -U app -d app
 ```
 
-
+Create a test DB:
+```
+kubectl apply -f - << EOF
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: test-db
+  namespace: cnpg-system
+spec:
+  cluster:
+    name: postgres
+  name: test-db
+  owner: test-db
+EOF
+```
 
 
