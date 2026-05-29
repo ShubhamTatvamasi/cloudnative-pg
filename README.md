@@ -22,6 +22,7 @@ metadata:
   namespace: cnpg-system
 spec:
   instances: 3
+  enableSuperuserAccess: true
   storage:
     size: 20Gi
 EOF
