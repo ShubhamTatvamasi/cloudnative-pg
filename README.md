@@ -12,3 +12,20 @@ helm upgrade -i cnpg cnpg/cloudnative-pg \
   --create-namespace
 ```
 
+
+Deploy a postgresql cluster:
+```bash
+kubectl apply -f - << EOF
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres
+  namespace: cnpg-system
+spec:
+  instances: 3
+  storage:
+    size: 20Gi
+  monitoring:
+    enablePodMonitor: true
+EOF
+```
