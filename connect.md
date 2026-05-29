@@ -1,5 +1,17 @@
 # connect
 
+Get Secrets:
+```bash
+kubectl -n cnpg-system \
+  get secret postgres-app -o yaml | \
+  yq '.data |= with_entries(.value |= @base64d)'
+
+# superuser
+kubectl -n cnpg-system \
+  get secret postgres-superuser -o yaml | \
+  yq '.data |= with_entries(.value |= @base64d)'
+```
+
 Connect via `postgres-rw-pooler` service as `super` user:
 ```bash
 PGPASSWORD=$(kubectl get secret postgres-superuser \
