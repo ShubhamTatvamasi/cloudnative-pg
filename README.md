@@ -29,7 +29,8 @@ EOF
 
 Get Secrets:
 ```bash
-kubectl get secret postgres-app -o yaml | \
-yq '.data |= with_entries(.value |= @base64d)'
+kubectl -n cnpg-system \
+  get secret postgres-app -o yaml | \
+  yq '.data |= with_entries(.value |= @base64d)'
 ```
 
