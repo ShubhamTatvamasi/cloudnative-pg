@@ -60,8 +60,8 @@ metadata:
 spec:
   cluster:
     name: postgres
-  name: test_db
-  owner: test_db
+  name: test_user
+  owner: test_user
 EOF
 ```
 
