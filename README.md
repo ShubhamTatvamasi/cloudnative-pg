@@ -25,7 +25,5 @@ spec:
   instances: 3
   storage:
     size: 20Gi
-  monitoring:
-    enablePodMonitor: true
 EOF
 ```
