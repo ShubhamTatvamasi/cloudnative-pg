@@ -50,7 +50,7 @@ EOF
 ```
 
 Create a test DB:
-```
+```bash
 kubectl apply -f - << EOF
 apiVersion: postgresql.cnpg.io/v1
 kind: Database
