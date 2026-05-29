@@ -28,18 +28,6 @@ spec:
 EOF
 ```
 
-Get Secrets:
-```bash
-kubectl -n cnpg-system \
-  get secret postgres-app -o yaml | \
-  yq '.data |= with_entries(.value |= @base64d)'
-
-# superuser
-kubectl -n cnpg-system \
-  get secret postgres-superuser -o yaml | \
-  yq '.data |= with_entries(.value |= @base64d)'
-```
-
 Create a pgbouncer pooler:
 ```bash
 kubectl apply -f - << EOF
