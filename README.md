@@ -12,7 +12,6 @@ helm upgrade -i cnpg cnpg/cloudnative-pg \
   --create-namespace
 ```
 
-
 Deploy a postgresql cluster:
 ```bash
 kubectl apply -f - << EOF
@@ -27,3 +26,10 @@ spec:
     size: 20Gi
 EOF
 ```
+
+Get Secrets:
+```bash
+kubectl get secret postgres-app -o yaml | \
+yq '.data |= with_entries(.value |= @base64d)'
+```
+
