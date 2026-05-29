@@ -34,3 +34,27 @@ kubectl -n cnpg-system \
   yq '.data |= with_entries(.value |= @base64d)'
 ```
 
+Create a pgbouncer pooler:
+```bash
+kubectl apply -f - << EOF
+apiVersion: postgresql.cnpg.io/v1
+kind: Pooler
+metadata:
+  name: postgres-rw-pooler
+  namespace: cnpg-system
+spec:
+  cluster:
+    name: postgres
+  instances: 3
+  type: rw
+  pgbouncer:
+    poolMode: transaction
+    parameters:
+      max_client_conn: "1000"
+      default_pool_size: "25"
+EOF
+```
+
+
+
+
