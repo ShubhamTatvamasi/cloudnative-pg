@@ -73,7 +73,7 @@ kubectl run psql-client \
   --image=shubhamtatvamasi/psql \
   -n cnpg-system \
   --env="PGPASSWORD=$PGPASSWORD" \
-  -- psql -h postgres-rw-pooler -U postgres -d postgres
+  -- psql -h postgres-rw-pooler -U app -d app
 ```
 
 
@@ -89,7 +89,7 @@ kubectl run psql-client \
   --image=shubhamtatvamasi/psql \
   -n cnpg-system \
   --env="PGPASSWORD=$PGPASSWORD" \
-  -- psql -h postgres-rw-pooler -U app -d app
+  -- psql -h postgres-rw-pooler -U postgres -d postgres
 ```
 
 Create a test DB:
