@@ -29,3 +29,19 @@ kubectl run psql-client \
   --env="PGPASSWORD=test_user" \
   -- psql -h postgres-rw-pooler -U test_user -d test_db
 ```
+
+Create a test DB:
+```bash
+kubectl apply -f - << EOF
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: test-db
+  namespace: cnpg-system
+spec:
+  cluster:
+    name: postgres
+  name: test_db
+  owner: test_user
+EOF
+```
