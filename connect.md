@@ -12,6 +12,8 @@ kubectl -n cnpg-system \
   yq '.data |= with_entries(.value |= @base64d)'
 ```
 
+---
+
 Connect via `postgres-rw-pooler` service as `super` user:
 ```bash
 PGPASSWORD=$(kubectl get secret postgres-superuser \
