@@ -49,19 +49,19 @@ spec:
 EOF
 ```
 
-Create a test DB:
+Create a new DB:
 ```bash
 kubectl apply -f - << EOF
 apiVersion: postgresql.cnpg.io/v1
 kind: Database
 metadata:
-  name: test-db
+  name: new-db
   namespace: cnpg-system
 spec:
   cluster:
     name: postgres
-  name: test_db
-  owner: test_user
+  name: new_db
+  owner: app
 EOF
 ```
 
