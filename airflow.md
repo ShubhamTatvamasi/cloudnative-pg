@@ -12,7 +12,7 @@ kubectl create secret generic airflow-basic-auth \
 ---
 
 ```bash
-export PGPASSWORD=$(kubectl get secret postgres-app \
+PGPASSWORD=$(kubectl get secret postgres-app \
   -n cnpg-system \
   -o jsonpath='{.data.password}' | base64 -d)
 ```
