@@ -8,6 +8,6 @@ export PGPASSWORD=$(kubectl get secret postgres-app \
 
 ```
 kubectl create secret generic airflow-metadata-secret \
-  --from-literal=connection='postgresql+psycopg2://app:${PGPASSWORD}@postgres-rw-pooler.cnpg-system:5432/airflow_db' \
+  --from-literal=connection="postgresql+psycopg2://app:${PGPASSWORD}@postgres-rw-pooler.cnpg-system:5432/airflow_db" \
   --dry-run=client -o yaml > /tmp/airflow-metadata-secret.yaml
 ```
