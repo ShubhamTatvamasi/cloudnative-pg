@@ -1,6 +1,17 @@
 # Airflow
 
 ```bash
+kubectl create secret generic airflow-basic-auth \
+  --type=kubernetes.io/basic-auth \
+  --from-literal=username=airflow \
+  --from-literal=password=airflow \
+  --dry-run=client -o yaml > /tmp/airflow-basic-auth.yaml
+```
+
+
+---
+
+```bash
 export PGPASSWORD=$(kubectl get secret postgres-app \
   -n cnpg-system \
   -o jsonpath='{.data.password}' | base64 -d)
