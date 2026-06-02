@@ -7,12 +7,12 @@ export PGPASSWORD=$(kubectl get secret postgres-app \
 ```
 
 ```bash
-kubectl create secret generic airflow-metadata-secret \
+kubectl create secret generic airflow-metadata-connection \
   --from-literal=connection="postgresql+psycopg2://app:${PGPASSWORD}@postgres-rw-pooler.cnpg-system:5432/airflow_db" \
-  --dry-run=client -o yaml > /tmp/airflow-metadata-secret.yaml
+  --dry-run=client -o yaml > /tmp/airflow-metadata-connection.yaml
 ```
 
 ```bash
-cat /tmp/airflow-metadata-secret.yaml | \
+cat /tmp/airflow-metadata-connection.yaml | \
   yq '.data |= with_entries(.value |= @base64d)'
 ```
