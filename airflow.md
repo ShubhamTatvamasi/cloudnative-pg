@@ -14,7 +14,7 @@ Seale it:
 kubeseal \
   --namespace cnpg-system \
   --controller-name=sealed-secrets \
-  --controller-namespace=sealedsecrets-system \
+  --controller-namespace=sealed-secrets \
   --format yaml \
   < /tmp/airflow-basic-auth.yaml > /tmp/airflow-basic-auth-sealedsecret.yaml
 ```
