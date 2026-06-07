@@ -1,11 +1,22 @@
 # Airflow
 
+Create a secret for airflow database:
 ```bash
 kubectl create secret generic airflow-basic-auth \
   --type=kubernetes.io/basic-auth \
   --from-literal=username=airflow \
   --from-literal=password=airflow \
   --dry-run=client -o yaml > /tmp/airflow-basic-auth.yaml
+```
+
+Seale it:
+```
+kubeseal \
+  --namespace cnpg-system \
+  --controller-name=sealed-secrets \
+  --controller-namespace=sealedsecrets-system \
+  --format yaml \
+  < /tmp/airflow-basic-auth.yaml > /tmp/airflow-basic-auth-sealedsecret.yaml
 ```
 
 
