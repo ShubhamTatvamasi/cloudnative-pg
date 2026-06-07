@@ -1,5 +1,7 @@
 # cloudnative-pg
 
+https://artifacthub.io/packages/helm/cloudnative-pg/cloudnative-pg
+
 Add helm repo:
 ```bash
 helm repo add cnpg https://cloudnative-pg.io/charts/
