@@ -46,7 +46,7 @@ kubectl run psql-client \
 
 ---
 
-Connect to Airflow:
+Connect to Airflow database:
 ```bash
 kubectl run psql-client \
   --rm -it \
