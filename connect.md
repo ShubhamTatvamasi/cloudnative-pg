@@ -44,3 +44,17 @@ kubectl run psql-client \
   -- psql -h postgres-rw-pooler -U app -d app
 ```
 
+---
+
+Connect to Airflow:
+```bash
+kubectl run psql-client \
+  --rm -it \
+  --restart=Never \
+  --image=shubhamtatvamasi/psql \
+  -n cnpg-system \
+  --env="PGPASSWORD=airflow" \
+  -- psql -h postgres-rw-pooler -U airflow -d airflow
+```
+
+
