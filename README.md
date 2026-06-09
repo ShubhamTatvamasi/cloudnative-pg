@@ -14,6 +14,12 @@ helm upgrade -i cnpg cnpg/cloudnative-pg \
   --create-namespace
 ```
 
+restart pooler if ID and password is not working:
+```bash
+kubectl rollout restart deployment postgres-rw-pooler -n cnpg-system
+```
+> This happens due to stale cache
+
 Deploy a postgresql cluster:
 ```bash
 kubectl apply -f - << EOF
